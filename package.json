@@ -1,0 +1,19 @@
+{
+  "name": "nodejs-webscraper-master",
+  "version": "1.0.0",
+  "description": "\"web scraper\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/josefin4/nodejs-webscraper-master.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/josefin4/nodejs-webscraper-master/issues"
+  },
+  "homepage": "https://github.com/josefin4/nodejs-webscraper-master#readme"
+}
