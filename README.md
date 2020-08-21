@@ -1,1 +1,1 @@
-A NodeJS web scraper application made by Josefin Salomaa & Marina Bdewi
+A NodeJS web scraper application made by Josefin Salomaa & Marina
