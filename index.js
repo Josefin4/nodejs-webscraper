@@ -25,7 +25,9 @@ $('#mw-content-text').each((i, el) => {
     const content = $(el).find('p').text();
     
     writeStream.write(`${title}, ${content} \n`);
+    console.log(title + ' ' + content + '\n' )
     console.log('done');
+
 
 })
 
@@ -36,4 +38,4 @@ $('#mw-content-text').each((i, el) => {
  });
 
 //
-app.listen(PORT, ()=> console.log(`Server started on port ${PORT}....` ));
+//app.listen(PORT, ()=> console.log(`Server started on port ${PORT}....` ));
