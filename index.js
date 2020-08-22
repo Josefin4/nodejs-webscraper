@@ -1,6 +1,3 @@
-const express = require('express');
-const app = express();
-const {PORT = 3000} = process.env;
 
 const fs = require('fs');
 const request = require('request');
@@ -43,4 +40,3 @@ $('#mw-content-text').each((i, el) => {
           })
  })
 
-app.listen(PORT, ()=> console.log(`Server started on port ${PORT}....` ));
