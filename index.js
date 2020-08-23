@@ -9,23 +9,25 @@ request('https://en.wikipedia.org/wiki/Big_cat', (error, response,
     const $ = cheerio.load(html);
 
     const body = $('.mw-parser-output').children();
-
     const data = [];
     const jsonContent = {
       heading: '',
-      body: ''
+      body: '',
+      extraContent : ''
     };
 
     body.each((i, el) => {
       const siteHeading = $('.firstHeading').text();
 
       const title = $(el).filter('h2');
-      const content = $(title).nextUntil('h2', 'p').text();
+      const content = $(title).nextUntil('h2', 'p').text().trim();
+      const extraContent = $(title).nextUntil('h2', 'ul').text().trim();
 
-      if (title.text() != '') {
+      if (title.text().length >= 1) {
         data[i] = {
           title: title.children('.mw-headline').text().trim(),
-          content: content
+          content: content,
+          extraContent : extraContent
         }
       }
 
