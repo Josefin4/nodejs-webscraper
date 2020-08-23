@@ -12,27 +12,26 @@ request('https://en.wikipedia.org/wiki/Big_cat', (error, response,
 
     const data = [];
     const jsonContent = {
-      heading : '',
-      body : ''
+      heading: '',
+      body: ''
     };
-    
+
     body.each((i, el) => {
       const siteHeading = $('.firstHeading').text();
 
-      
       const title = $(el).filter('h2');
       const content = $(title).nextUntil('h2', 'p').text();
 
-     
+      if (title.text() != '') {
         data[i] = {
-          title: title.text().trim(),
+          title: title.children('.mw-headline').text().trim(),
           content: content
+        }
       }
-      
 
-       jsonContent.heading = siteHeading;
-       jsonContent.body = data;
-      
+      jsonContent.heading = siteHeading;
+      jsonContent.body = data;
+
 
       // console.log(data);
 
