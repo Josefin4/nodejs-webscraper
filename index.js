@@ -11,22 +11,30 @@ request('https://en.wikipedia.org/wiki/Big_cat', (error, response,
     const body = $('.mw-parser-output').children();
 
     const data = [];
-
+    const jsonContent = {
+      heading : '',
+      body : ''
+    };
+    
     body.each((i, el) => {
       const siteHeading = $('.firstHeading').text();
+      
       const title = $(el).filter('h2');
       const content = $(title).nextUntil('h2', 'p').text();
 
       data[i] = {
-        heading: siteHeading,
         title: title.text().trim(),
         content: content
       }
 
+       jsonContent.heading = siteHeading;
+       jsonContent.body = data;
+      
+
       // console.log(data);
 
     })
-    const jsonFile = JSON.stringify(data);
+    const jsonFile = JSON.stringify(jsonContent);
 
     fs.writeFile('wiki.json', jsonFile, function (err) {
       console.log('The data has been saved in a file! Look for the wiki.json file');
